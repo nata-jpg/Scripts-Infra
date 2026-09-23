@@ -161,8 +161,7 @@ ZABBIX_MAJOR=""
 
 for v in "${ZABBIX_CANDIDATES[@]}"; do
     info "   Testando Zabbix ${v}..."
-    url="$(find_repo_package "$v")"
-    if [ -n "$url" ]; then
+    if url="$(find_repo_package "$v")" && [ -n "$url" ]; then
         REPO_PKG_URL="$url"
         ZABBIX_MAJOR="$v"
         info "   -> Encontrado: Zabbix ${v} (${url##*/})"
